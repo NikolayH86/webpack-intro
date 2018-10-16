@@ -1,9 +1,13 @@
-import _ from 'lodash';
+import _join from 'lodash.join';
 
 function component() {
     let element = document.createElement('div');
 
-    element.innerHTML = _.join(['Hello', 'webpack'], ' ');
+    element.innerHTML = _join(['Hello', 'webpack'], ' ');
+
+    require.ensure([], function() {
+        require('./more');
+    });
 
     return element;
 }
